@@ -1,102 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>OKA Game Table</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starwish Party Demo Page</title>
+  <link rel="stylesheet" href="./css/demo.css">
 </head>
 <body>
-  <div class="container">
-    <h1>OKA Games Testing Table</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Game No.</th>
-          <th>Game Name</th>
-          <th>Game Code</th>
-          <th>Preview</th>
-          <th>Question Type</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>g2</td>
-          <td>Motion Phonics</td>
-          <td>card</td>
-          <td>
-            <img src="./image/phonics_preview.jpg" alt="Image-1" class="td-image">
-          </td>
-          <td>        
-            <div class="select-wrap">
-              <select id="mpcard-unit-picker" style="overflow-y:auto;"> 
+  <div class="starwish-party-container">
+    <div class="starwish-party">
+      <div class="logo"></div>
+      <div class="note">
+          Note: These games are demo only. They are not the final games.
+      </div>
+      <div class="game-container">
+        <div class="game-card">
+            <img src="./image/screen_mpair.jpg" alt="Game 1" class="game-image"/>
+            <h1 class="game-title">Game 2: Motion Phonics</h1>
+            <div class="game-controls">
+              <select id="mpcard-unit-picker" style="overflow-y:auto;">
                 <option value="p1u1-c">mpair (p1u1-c)</option>
                 <option value="p1u2-d">mpair (p1u2-d)</option>
               </select>
+              <button class="play-button" onclick="updatePhonicsGameLink()">Play</button>
             </div>
-          </td>
-          <td><button onclick="updatePhonicsGameLink()">Link</button></td>
-        </tr>
-        <tr>
-            <td>g3</td>
-            <td>Snake</td>
-            <td>snake</td>
-            <td>
-              <img src="./image/snake_preview.jpg" alt="Image-2" class="td-image">
-            </td>
-            <td>
-              <div class="select-wrap">
-                <select id="snake-unit-picker" style="overflow-y:auto;"> 
-                  <option value="p1u1-d">snake-pic (p1u1-d)</option>
-                </select>
-              </div>
-            </td>
-            <td><button onclick="updateSnakeGameLink()">Link</button></td>
-        </tr>
-        <tr>
-            <td>g4</td>
-            <td>Typing</td>
-            <td>type</td>
-            <td>
-              <img src="./image/typing_preview.jpg" alt="Image-3" class="td-image">
-            </td>
-            <td>              
-              <div class="select-wrap">
-                <select id="typing-unit-picker" style="overflow-y:auto;"> 
-                  <option value="p1u1-b">g4-type (p1u1-b)</option>
-                  <option value="p1u2-b">g4-type (p1u2-b)</option>
-                  <option value="p1u3-b">g4-type (p1u3-b)</option>
-                </select>
-              </div>
-            </td>
-            <td><button onclick="updateTypingGameLink()">Link</button></td>
-        </tr>
-        <tr>
-            <td>g5</td>
-            <td>Motion Spelling</td>
-            <td>mspell</td>
-            <td>
-              <img src="./image/spelling_preview.jpg" alt="Image-4" class="td-image">
-            </td>
-            <td>        
-              <div class="select-wrap">
-                <select id="mspell-unit-picker" style="overflow-y:auto;">
-                  <option value="p1u1">mspell (test)</option>
-                  <option value="p1u1-b">mspell (p1u1-b)</option>
-                  <option value="p1u2-a">mspell (p1u2-a)</option>
-                  <option value="p1u3-a">mspell-lis (p1u3-a)</option>
-                  <option value="p2u3-c">mspell-lis (p2u3-c)</option>
-                  <option value="p3u1-e">mspell-mc (p3u1-e)</option>
-                  <option value="p3u2-c">mspell-lis (p3u2-c)</option>
-                  <option value="p5u3-c">mspell-pic (p5u3-c)</option>
-                </select>
-              </div>             
-            </td>
-            <td><button onclick="updateSpellingGameLink()">Link</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="version-text">Ver 1.01</div>
+        </div>
+        <div class="game-card">
+            <img src="./image/screen_snake.jpg" alt="Game 2" class="game-image" />
+            <h1 class="game-title">Game 3: Snake</h1>
+            <div class="game-controls">
+              <select id="snake-unit-picker" style="overflow-y:auto;">
+                <option value="p1u1-d">snake-pic (p1u1-d)</option>
+              </select>
+              <button onclick="updateSnakeGameLink()" class="play-button">Play</button>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="./image/screen_type.jpg" alt="Game 3" class="game-image" />
+            <h1 class="game-title">Game 4: Typing</h1>
+            <div class="game-controls">
+              <select id="typing-unit-picker" style="overflow-y:auto;">
+                <option value="p1u1-b">g4-type (p1u1-b)</option>
+                <option value="p1u2-b">g4-type (p1u2-b)</option>
+                <option value="p1u3-b">g4-type (p1u3-b)</option>
+              </select>
+              <button onclick="updateTypingGameLink()" class="play-button">Play</button>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="./image/screen_mspell.jpg" alt="Game 4" class="game-image" />
+            <h1 class="game-title">Game 5: Motion Spelling</h1>
+            <div class="game-controls">
+              <select  id="mspell-unit-picker" style="overflow-y:auto;">
+                <option value="p1u1">mspell (test)</option>
+                <option value="p1u1-b">mspell (p1u1-b)</option>
+                <option value="p1u2-a">mspell (p1u2-a)</option>
+                <option value="p1u3-a">mspell-lis (p1u3-a)</option>
+                <option value="p2u3-c">mspell-lis (p2u3-c)</option>
+                <option value="p3u1-e">mspell-mc (p3u1-e)</option>
+                <option value="p3u2-c">mspell-lis (p3u2-c)</option>
+                <option value="p5u3-c">mspell-pic (p5u3-c)</option>
+              </select>
+              <button onclick="updateSpellingGameLink()" class="play-button">Play</button>
+            </div>
+        </div>
+        <div class="game-card">
+          <img src="./image/typing_preview.jpg" alt="Game 4" class="game-image" />
+          <h1 class="game-title">Game 6: Testing</h1>
+          <div class="game-controls">
+            <select style="overflow-y:auto;">
+              <option value="p1u1-c">mpair (p1u1-c)</option>
+            </select>
+            <button class="play-button">Play</button>
+          </div>
+      </div>
+      </div>
+    </div>
   </div>
+  <div class="version-text">Ver 1.02</div>
   <script src="./js/script.js"></script>
 </body>
 </html>
