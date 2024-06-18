@@ -1,28 +1,28 @@
 function updatePhonicsGameLink() {
     const unitPicker = document.getElementById('mpcard-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = 'https://dev.openknowledge.hk/RainbowOne/webapp/lester/phonics/';
+    const baseUrl = window.location.origin + '/RainbowOne/webapp/OKAGames/Phonics/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     window.open(newUrl, '_self');
 }
 function updateSnakeGameLink() {
     const unitPicker = document.getElementById('snake-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = 'https://dev.openknowledge.hk/RainbowOne/webapp/lester/Snake/';
+    const baseUrl = window.location.origin + '/RainbowOne/webapp/OKAGames/Snake/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     window.open(newUrl);
 }
 function updateTypingGameLink() {
     const unitPicker = document.getElementById('typing-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = 'https://dev.openknowledge.hk/RainbowOne/webapp/sing/Typing/';
+    const baseUrl = window.location.origin + '/RainbowOne/webapp/OKAGames/Typing/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     window.open(newUrl);
 }
 function updateSpellingGameLink() {
     const unitPicker = document.getElementById('mspell-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = 'https://dev.openknowledge.hk/RainbowOne/webapp/lester/Motion-Spelling/';
+    const baseUrl = window.location.origin + '/RainbowOne/webapp/OKAGames/MotionSpelling/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     window.open(newUrl, '_self');
 }

@@ -140,6 +140,13 @@ html, body {
     color: #ffffff;
     font-family: Arial;
   }
+  .game-card .note {
+    margin-bottom: calc(min(10vh, 10vw));
+    font-size: 1.6vh;
+    text-align: center;
+    font-family: Arial;
+    font-weight: 100;
+  }
 
   .game-card .game-controls {
     flex: 0 0 auto;
@@ -164,7 +171,7 @@ html, body {
     overflow-y: auto;
     height: 100%;
     border-radius: 0.5vh;
-    font-size: 1.2vw;
+    font-size: 1vw;
     padding-left: 10px;
     font-family: Arial, sans-serif;
   }
