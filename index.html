@@ -12,7 +12,10 @@
     <div class="starwish-party">
       <div class="logo"></div>
       <div class="note">
-          Note: These games are demo only. They are not the final games.
+        <br>
+        Note: These games are demo only. They are not the final games.
+        <br>
+        Recommend to use iPad to play.
       </div>
       <div class="game-container">
         <div class="game-card">
@@ -24,7 +27,7 @@
                 <option value="p1u2-d">P1U2-Game D (Pair)</option>
                 <option value="p1u3-c">P1U3-Game C (Picture)</option>
               </select>
-              <button class="play-button" onclick="updatePhonicsGameLink()">Play</button>
+              <button id="phonicsBtn" class="play-button">Play</button>
             </div>
             <h1 class="note">*Questions are not final</h1>
         </div>
@@ -35,7 +38,7 @@
               <select id="snake-unit-picker" style="overflow-y:auto;">
                 <option value="p1u1-d">P1U1-Game D (Picture)</option>
               </select>
-              <button onclick="updateSnakeGameLink()" class="play-button">Play</button>
+              <button id="snakeBtn" class="play-button">Play</button>
             </div>
         </div>
         <div class="game-card">
@@ -47,7 +50,7 @@
                 <option value="p1u2-b">P1U2-Game B (Type)</option>
                 <option value="p1u3-b">P1U3-Game B (Type)</option>
               </select>
-              <button onclick="updateTypingGameLink()" class="play-button">Play</button>
+              <button id="typingBtn" class="play-button">Play</button>
             </div>
         </div>
         <div class="game-card">
@@ -65,7 +68,7 @@
                 <option value="p3u5-c">P3U5-Game C (Listening)</option>
                 <option value="p5u3-c">P5U3-Game C (Picture)</option>
               </select>
-              <button onclick="updateSpellingGameLink()" class="play-button">Play</button>
+              <button id="mspellingBtn" class="play-button">Play</button>
             </div>
         </div>
         <!--<div class="game-card">
@@ -81,7 +84,44 @@
       </div>-->
     </div>
   </div>
-  <div class="version-text">Ver 1.03</div>
-  <script src="./js/script.js"></script>
+  <div class="version-text">Ver 1.04</div>
+  <script type="module">
+      import RainbowOneUtils from './js/script.js';
+
+      RainbowOneUtils.nodoubletapzoom();
+      //RainbowOneUtils.hideURLPath();
+
+      const phonicsBtn = document.getElementById('phonicsBtn');
+      const snakeBtn = document.getElementById('snakeBtn');
+      const typingBtn = document.getElementById('typingBtn');
+      const mspellingBtn = document.getElementById('mspellingBtn');
+
+      phonicsBtn.addEventListener('click', handleButtonClick);
+      snakeBtn.addEventListener('click', handleButtonClick);
+      typingBtn.addEventListener('click', handleButtonClick);
+      mspellingBtn.addEventListener('click', handleButtonClick);
+
+      phonicsBtn.addEventListener('touchend', handleButtonClick);
+      snakeBtn.addEventListener('touchend', handleButtonClick);
+      typingBtn.addEventListener('touchend', handleButtonClick);
+      mspellingBtn.addEventListener('touchend', handleButtonClick);
+
+      function handleButtonClick(event) {
+        event.preventDefault(); // Prevent default touch behavior
+        
+        if (event.type === 'click' || event.type === 'touchend') {
+          const target = event.currentTarget;
+          if (target.id === 'phonicsBtn') {
+            RainbowOneUtils.updatePhonicsGameLink();
+          } else if (target.id === 'snakeBtn') {
+            RainbowOneUtils.updateSnakeGameLink();
+          } else if (target.id === 'typingBtn') {
+            RainbowOneUtils.updateTypingGameLink();
+          } else if (target.id === 'mspellingBtn') {
+            RainbowOneUtils.updateSpellingGameLink();
+          }
+        }
+      }
+  </script>
 </body>
 </html>
