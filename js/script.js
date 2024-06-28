@@ -6,14 +6,15 @@ const RainbowOneUtils = {
   updateTypingGameLink,
   updateSpellingGameLink,
   nodoubletapzoom,
-  hideURLPath
+  hideURLPath,
 };
 
-function updatePhonicsGameLink() {
+function updatePhonicsGameLink(removalStatus) {
+  console.log("removalStatus", removalStatus);
     const unitPicker = document.getElementById('mpcard-unit-picker');
     const selectedUnit = unitPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Phonics/';
-    const newUrl = `${baseUrl}?unit=${selectedUnit}`;
+    const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}`;
     window.open(newUrl, '_self');
 }
 function updateSnakeGameLink() {
@@ -30,11 +31,12 @@ function updateTypingGameLink() {
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     window.open(newUrl, '_self');
 }
-function updateSpellingGameLink() {
+function updateSpellingGameLink(removalStatus) {
+    console.log("removalStatus", removalStatus);
     const unitPicker = document.getElementById('mspell-unit-picker');
     const selectedUnit = unitPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/MotionSpelling/';
-    const newUrl = `${baseUrl}?unit=${selectedUnit}`;
+    const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}`;
     window.open(newUrl, '_self');
 }
 

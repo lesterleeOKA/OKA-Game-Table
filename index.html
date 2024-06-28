@@ -20,6 +20,10 @@
       <div class="game-container">
         <div class="game-card">
             <img src="./image/screen_mpair.jpg" alt="Game 1" class="game-image"/>
+            <label class="switch">
+              <input type="checkbox" id="mp-bg-remove">
+              <span class="slider"></span>
+            </label>
             <h1 class="game-title">Game 2: Motion Phonics</h1>
             <div class="game-controls">
               <select id="mpcard-unit-picker" style="overflow-y:auto;">
@@ -64,6 +68,10 @@
         </div>
         <div class="game-card">
             <img src="./image/screen_mspell.jpg" alt="Game 4" class="game-image" />
+            <label class="switch">
+              <input type="checkbox" id="ms-bg-remove">
+              <span class="slider"></span>
+            </label>
             <h1 class="game-title">Game 5: Motion Spelling</h1>
             <div class="game-controls">
               <select  id="mspell-unit-picker" style="overflow-y:auto;">
@@ -97,9 +105,33 @@
   <div class="version-text">Ver 1.05</div>
   <script type="module">
       import RainbowOneUtils from './js/script.js';
-
       RainbowOneUtils.nodoubletapzoom();
       //RainbowOneUtils.hideURLPath();
+      let mp_removalStatus = "";
+      const mpbgRemoveSwitch = document.getElementById('mp-bg-remove');
+      mpbgRemoveSwitch.checked = false;
+      mpbgRemoveSwitch.addEventListener('change', function() {
+          if (this.checked) {
+            mp_removalStatus = "&removal=1";
+            console.log('Switch is on!', mp_removalStatus);
+          } else {
+            mp_removalStatus = "";
+            console.log('Switch is off!', mp_removalStatus);
+          }
+      });
+      
+      let ms_removalStatus = "";
+      const msbgRemoveSwitch = document.getElementById('ms-bg-remove');
+      msbgRemoveSwitch.checked = false;
+      msbgRemoveSwitch.addEventListener('change', function() {
+          if (this.checked) {
+            ms_removalStatus = "&removal=1";
+            console.log('Switch is on!', ms_removalStatus);
+          } else {
+            ms_removalStatus = "";
+            console.log('Switch is off!', ms_removalStatus);
+          }
+      });
 
       const phonicsBtn = document.getElementById('phonicsBtn');
       const snakeBtn = document.getElementById('snakeBtn');
@@ -122,13 +154,13 @@
         if (event.type === 'click' || event.type === 'touchend') {
           const target = event.currentTarget;
           if (target.id === 'phonicsBtn') {
-            RainbowOneUtils.updatePhonicsGameLink();
+            RainbowOneUtils.updatePhonicsGameLink(mp_removalStatus);
           } else if (target.id === 'snakeBtn') {
             RainbowOneUtils.updateSnakeGameLink();
           } else if (target.id === 'typingBtn') {
             RainbowOneUtils.updateTypingGameLink();
           } else if (target.id === 'mspellingBtn') {
-            RainbowOneUtils.updateSpellingGameLink();
+            RainbowOneUtils.updateSpellingGameLink(ms_removalStatus);
           }
         }
       }
