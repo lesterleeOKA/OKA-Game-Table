@@ -71,9 +71,11 @@ html, body {
     position: absolute;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: calc(min(0.3vh, 0.3vw));
+    grid-template-columns: repeat(auto-fit, minmax(15vh, 23vw));
+    /*gap: calc(min(0.3vh, 0.3vw));*/
     -webkit-overflow-scrolling: auto;
+    top: calc(min(11vh, 11vw));
+    padding-bottom: calc(min(5vh, 5vw));
 }
 
   .game-container > * {
@@ -88,7 +90,6 @@ html, body {
     display: flex;
     flex-direction: column;
     touch-action: manipulation;
-    margin-top: calc(min(11vh, 11vw));
   }
   .game-card .game-image {
     border-radius: calc(min(2vh, 2vw));

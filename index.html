@@ -89,24 +89,31 @@
               <button id="mspellingBtn" class="play-button">Play</button>
             </div>
         </div>
-        <!--<div class="game-card">
-          <img src="./image/typing_preview.jpg" alt="Game 4" class="game-image" />
-          <h1 class="game-title">Game 6: Testing</h1>
+        <div class="game-card">
+          <img src="./image/mhead_preview.jpg" alt="Game 4" class="game-image" />
+          <label class="switch">
+            <input type="checkbox" id="ms-bg-remove">
+            <span class="slider"></span>
+          </label>
+          <h1 class="game-title">Game 8: Head To Win</h1>
           <div class="game-controls">
-            <select style="overflow-y:auto;">
-              <option value="p1u1-c">mpair (p1u1-c)</option>
+            <select  id="mhead-unit-picker" style="overflow-y:auto;">
+              <option value="p1u1-a">P1U1-Game A (Listening)</option>
+              <option value="p1u3-e">P1U3-Game E (Text)</option>
+              <option value="p2u1-e">P2U1-Game E (Text)</option>
             </select>
-            <button class="play-button">Play</button>
+            <button id="headToWinBtn" class="play-button">Play</button>
           </div>
-        </div>
-      </div>-->
+      </div>
+
     </div>
   </div>
-  <div class="version-text">Ver 1.05</div>
+  <div class="version-text">Ver 1.06</div>
   <script type="module">
       import RainbowOneUtils from './js/script.js';
       RainbowOneUtils.nodoubletapzoom();
       //RainbowOneUtils.hideURLPath();
+
       let mp_removalStatus = "";
       const mpbgRemoveSwitch = document.getElementById('mp-bg-remove');
       mpbgRemoveSwitch.checked = false;
@@ -137,16 +144,19 @@
       const snakeBtn = document.getElementById('snakeBtn');
       const typingBtn = document.getElementById('typingBtn');
       const mspellingBtn = document.getElementById('mspellingBtn');
+      const headToWinBtn = document.getElementById('headToWinBtn');
 
       phonicsBtn.addEventListener('click', handleButtonClick);
       snakeBtn.addEventListener('click', handleButtonClick);
       typingBtn.addEventListener('click', handleButtonClick);
       mspellingBtn.addEventListener('click', handleButtonClick);
+      headToWinBtn.addEventListener('click', handleButtonClick);
 
       phonicsBtn.addEventListener('touchend', handleButtonClick);
       snakeBtn.addEventListener('touchend', handleButtonClick);
       typingBtn.addEventListener('touchend', handleButtonClick);
       mspellingBtn.addEventListener('touchend', handleButtonClick);
+      headToWinBtn.addEventListener('touchend', handleButtonClick);
 
       function handleButtonClick(event) {
         event.preventDefault(); // Prevent default touch behavior
@@ -161,6 +171,8 @@
             RainbowOneUtils.updateTypingGameLink();
           } else if (target.id === 'mspellingBtn') {
             RainbowOneUtils.updateSpellingGameLink(ms_removalStatus);
+          } else if (target.id === 'headToWinBtn') {
+            RainbowOneUtils.updateHeadToWinGameLink(ms_removalStatus);
           }
         }
       }
