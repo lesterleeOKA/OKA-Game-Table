@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    translate: no;
   }
   
   body, html {
@@ -13,6 +14,7 @@ html, body {
     overflow: hidden;
     background-color: transparent;
     touch-action: manipulation;
+    translate: no;
   }
   
   .background {
@@ -71,10 +73,11 @@ html, body {
     position: absolute;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15vh, 23vw));
-    /*gap: calc(min(0.3vh, 0.3vw));*/
+    grid-template-columns: repeat(auto-fit, minmax(15vh, 22vw));
+	gap: calc(min(1.5vh, 1.5vw));
     -webkit-overflow-scrolling: auto;
     top: calc(min(11vh, 11vw));
+    padding-left: calc(min(2.5vw, 2.5vh));
     padding-bottom: calc(min(5vh, 5vw));
 }
 
@@ -150,6 +153,10 @@ html, body {
     font-size: calc(min(5vh, 1vw));
     padding-left: calc(min(0.5vh, 0.5vw));
     font-family: Arial, sans-serif;
+  }
+
+  .no-translate {
+    translate: no;
   }
 
   .game-card .game-controls .play-button {
