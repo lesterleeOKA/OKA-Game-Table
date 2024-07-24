@@ -14,9 +14,11 @@ const RainbowOneUtils = {
 function updatePhonicsGameLink(removalStatus) {
   console.log("removalStatus", removalStatus);
     const unitPicker = document.getElementById('mpcard-unit-picker');
+    const modelPicker = document.getElementById('mp-model');
     const selectedUnit = unitPicker.value;
+    let selectedModel = modelPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Phonics/';
-    const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}`;
+    const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
     window.open(newUrl, '_self');
 }
 function updateSnakeGameLink() {
@@ -36,17 +38,21 @@ function updateTypingGameLink() {
 function updateSpellingGameLink(removalStatus) {
     console.log("removalStatus", removalStatus);
     const unitPicker = document.getElementById('mspell-unit-picker');
+    const modelPicker = document.getElementById('ms-model');
     const selectedUnit = unitPicker.value;
+    let selectedModel = modelPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/MotionSpelling/';
-    const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}`;
+    const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
     window.open(newUrl, '_self');
 }
 function updateHeadToWinGameLink(removalStatus) {
   console.log("removalStatus", removalStatus);
   const unitPicker = document.getElementById('mhead-unit-picker');
+  const modelPicker = document.getElementById('mh-model');
   const selectedUnit = unitPicker.value;
+  let selectedModel = modelPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/HeadToWin/';
-  const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}`;
+  const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
   window.open(newUrl, '_self');
 }
 function updateJumpToSurviveGameLink() {

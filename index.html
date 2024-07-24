@@ -25,6 +25,11 @@
               <input type="checkbox" id="mp-bg-remove">
               <span class="slider"></span>
             </label>
+            <select id="mp-model" class="modelOption" style="overflow-y:auto;">
+              <option value="lite">Normal</option>
+              <option value="heavy">Stable</option>
+            </select>
+
             <h1 class="game-title">Game 2: Motion Phonics</h1>
             <div class="game-controls">
               <select id="mpcard-unit-picker" style="overflow-y:auto;" class="notranslate">
@@ -73,6 +78,10 @@
               <input type="checkbox" id="ms-bg-remove">
               <span class="slider"></span>
             </label>
+            <select id="ms-model" class="modelOption" style="overflow-y:auto;">
+              <option value="lite">Normal</option>
+              <option value="heavy">Stable</option>
+            </select>
             <h1 class="game-title">Game 5: Motion Spelling</h1>
             <div class="game-controls">
               <select  id="mspell-unit-picker" style="overflow-y:auto;">
@@ -93,9 +102,13 @@
         <div class="game-card">
           <img src="./image/mhead_preview.jpg" alt="Game 8" class="game-image" translate="no"/>
           <label class="switch">
-            <input type="checkbox" id="ms-bg-remove">
+            <input type="checkbox" id="mh-bg-remove">
             <span class="slider"></span>
           </label>
+          <select id="mh-model" class="modelOption" style="overflow-y:auto;">
+            <option value="lite">Normal</option>
+            <option value="heavy">Stable</option>
+          </select>
           <h1 class="game-title">Game 8: Head To Win</h1>
           <div class="game-controls">
             <select  id="mhead-unit-picker" style="overflow-y:auto;">
@@ -151,6 +164,19 @@
           }
       });
 
+      let mh_removalStatus = "";
+      const mhbgRemoveSwitch = document.getElementById('mh-bg-remove');
+      mhbgRemoveSwitch.checked = false;
+      mhbgRemoveSwitch.addEventListener('change', function() {
+          if (this.checked) {
+            mh_removalStatus = "&removal=1";
+            console.log('Switch is on!', mh_removalStatus);
+          } else {
+            mh_removalStatus = "";
+            console.log('Switch is off!', mh_removalStatus);
+          }
+      });
+
       const phonicsBtn = document.getElementById('phonicsBtn');
       const snakeBtn = document.getElementById('snakeBtn');
       const typingBtn = document.getElementById('typingBtn');
@@ -186,7 +212,7 @@
           } else if (target.id === 'mspellingBtn') {
             RainbowOneUtils.updateSpellingGameLink(ms_removalStatus);
           } else if (target.id === 'headToWinBtn') {
-            RainbowOneUtils.updateHeadToWinGameLink(ms_removalStatus);
+            RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus);
           } else if (target.id === 'jumpToSurviveBtn') {
             RainbowOneUtils.updateJumpToSurviveGameLink();
           }
