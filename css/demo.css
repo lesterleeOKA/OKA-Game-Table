@@ -189,8 +189,18 @@ html, body {
     z-index: 1;
 }
 
-.game-card .switch {
+.game-card .settings{
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17.8%; /* Ensure the container takes full width */
+  box-sizing: border-box; /* Include padding in element's total width/height */
+  padding: calc(min(0.5vh, 0.5vw));
+}
+
+.game-card .switch {
+  position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
@@ -198,17 +208,14 @@ html, body {
 }
 
 .game-card .modelOption {
-  position: absolute;
   display: inline-block;
-  overflow-y:auto;
-  width: 80px;
   height: 34px;
-  margin-top: 10px;
-  margin-left: calc(min(13vw, 13vw));
-  font-size: 16px;
+  margin-left: auto;
+  font-size: calc(min(1vh, 1vw));
   font-weight: bold;
   font-family: Arial, sans-serif;
   border-radius: calc(min(0.5vh, 0.5vw));
+  width: calc(min(4vw, 4vw));
 }
 
 .game-card .switch input {
