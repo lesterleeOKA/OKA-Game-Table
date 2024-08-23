@@ -6,7 +6,7 @@ const RainbowOneUtils = {
   updateTypingGameLink,
   updateSpellingGameLink,
   updateHeadToWinGameLink,
-  updateJumpToSurviveGameLink,
+  updateJumpToWinGameLink,
   nodoubletapzoom,
   hideURLPath,
 };
@@ -55,10 +55,10 @@ function updateHeadToWinGameLink(removalStatus) {
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
   window.open(newUrl, '_self');
 }
-function updateJumpToSurviveGameLink() {
+function updateJumpToWinGameLink() {
   const unitPicker = document.getElementById('jump-unit-picker');
   const selectedUnit = unitPicker.value;
-  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/JumpToSurvive/';
+  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/JumpToWin/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}`;
   window.open(newUrl, '_self');
 }

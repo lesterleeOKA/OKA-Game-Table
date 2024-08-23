@@ -129,15 +129,15 @@
           </div>
         </div>
         <div class="game-card">
-          <img src="./image/jump_to_survive_preview.png" alt="Game 12" class="game-image" translate="no"/>
-          <h1 class="game-title">Game 12: Jump To Survive</h1>
+          <img src="./image/jump_to_win_preview.png" alt="Game 12" class="game-image" translate="no"/>
+          <h1 class="game-title">Game 12: Jump To Win</h1>
           <div class="game-controls">
             <select  id="jump-unit-picker" style="overflow-y:auto;">
               <option value="p1u1-a">P1U1-Game A (Testing)</option>
               <option value="p6u1-c">P6U1-Game C (Listening)</option>
               <option value="p6u6-c">P6U6-Game C (Picture)</option>
             </select>
-            <button id="jumpToSurviveBtn" class="play-button">Play</button>
+            <button id="jumpToWinBtn" class="play-button">Play</button>
           </div>
         </div>
         <div class="game-card">
@@ -213,21 +213,21 @@
       const typingBtn = document.getElementById('typingBtn');
       const mspellingBtn = document.getElementById('mspellingBtn');
       const headToWinBtn = document.getElementById('headToWinBtn');
-      const jumpToSurviveBtn = document.getElementById('jumpToSurviveBtn');
+      const jumpToWinBtn = document.getElementById('jumpToWinBtn');
 
       phonicsBtn.addEventListener('click', handleButtonClick);
       snakeBtn.addEventListener('click', handleButtonClick);
       typingBtn.addEventListener('click', handleButtonClick);
       mspellingBtn.addEventListener('click', handleButtonClick);
       headToWinBtn.addEventListener('click', handleButtonClick);
-      jumpToSurviveBtn.addEventListener('click', handleButtonClick);
+      jumpToWinBtn.addEventListener('click', handleButtonClick);
 
       phonicsBtn.addEventListener('touchend', handleButtonClick);
       snakeBtn.addEventListener('touchend', handleButtonClick);
       typingBtn.addEventListener('touchend', handleButtonClick);
       mspellingBtn.addEventListener('touchend', handleButtonClick);
       headToWinBtn.addEventListener('touchend', handleButtonClick);
-      jumpToSurviveBtn.addEventListener('touchend', handleButtonClick);
+      jumpToWinBtn.addEventListener('touchend', handleButtonClick);
 
       function handleButtonClick(event) {
         event.preventDefault(); // Prevent default touch behavior
@@ -244,8 +244,8 @@
             RainbowOneUtils.updateSpellingGameLink(ms_removalStatus);
           } else if (target.id === 'headToWinBtn') {
             RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus);
-          } else if (target.id === 'jumpToSurviveBtn') {
-            RainbowOneUtils.updateJumpToSurviveGameLink();
+          } else if (target.id === 'jumpToWinBtn') {
+            RainbowOneUtils.updateJumpToWinGameLink();
           }
         }
       }
