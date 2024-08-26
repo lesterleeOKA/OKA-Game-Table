@@ -133,6 +133,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     height: calc(min(5vh, 2.5vw));
+    padding: calc(min(0.5vh, 0.5vw));
   }
 
   .game-card .game-controls select {

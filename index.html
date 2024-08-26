@@ -4,6 +4,9 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
   <title>Starwish Party Demo Page</title>
   <link rel="stylesheet" href="./css/demo.css">
 </head>
@@ -21,18 +24,21 @@
       <div class="game-container">
         <div class="game-card">
             <img src="./image/screen_mpair.jpg" alt="Game 2" class="game-image"/>
-            <div class="settings"> 
+            <h1 class="game-title">Game 2: Motion Phonics</h1>
+            <div class="game-controls">
+              <h1>Virtual Background:</h1>
               <label class="switch">
                 <input type="checkbox" id="mp-bg-remove">
                 <span class="slider"></span>
               </label>
-              <select id="mp-model" class="modelOption" style="overflow-y:auto;">
-                <option value="lite">Normal</option>
-                <option value="heavy">Stable</option>
-              </select>
             </div>
-            
-            <h1 class="game-title">Game 2: Motion Phonics</h1>
+            <div class="game-controls">
+              <h1>Detection Model:</h1>
+              <label class="switch">
+                <input type="checkbox" id="mp-model">
+                <span class="slider"></span>
+              </label>
+            </div>
             <div class="game-controls">
               <select id="mpcard-unit-picker" style="overflow-y:auto;" class="notranslate">
                 <option value="p1u1-c">P1U1-Game C (Pair)</option>
@@ -55,6 +61,13 @@
                 <option value="p1u3-d">P1U3-Game D (Listening)</option>
                 <option value="p1u5-d">P1U5-Game D (Listening)</option>
                 <option value="p1u6-d">P1U6-Game D (Picture)</option>
+                <option value="p2u2-b">p2u2-Game B (Picture)</option>
+                <option value="p2u3-d">p2u3-Game D (Listening)</option>
+                <option value="p2u4-d">p2u4-Game D (Listening)</option>
+                <option value="p2u5-d">p2u5-Game D (Listening)</option>
+                <option value="p2u6-d">p2u6-Game D (Listening)</option>
+                <option value="p3u1-c">p3u1-Game C (Listening)</option>
+                <option value="p3u3-c">p3u3-Game C (Listening)</option>
               </select>
               <button id="snakeBtn" class="play-button">Play</button>
             </div>
@@ -76,7 +89,7 @@
         </div>
         <div class="game-card">
             <img src="./image/screen_mspell.jpg" alt="Game 5" class="game-image" translate="no"/>
-            <div class="settings"> 
+            <!--<div class="settings"> 
               <label class="switch">
                 <input type="checkbox" id="ms-bg-remove">
                 <span class="slider"></span>
@@ -85,9 +98,23 @@
                 <option value="lite">Normal</option>
                 <option value="heavy">Stable</option>
               </select>
-            </div>
+            </div>-->
            
             <h1 class="game-title">Game 5: Motion Spelling</h1>
+            <div class="game-controls">
+              <h1>Virtual Background:</h1>
+              <label class="switch">
+                <input type="checkbox" id="ms-bg-remove">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="game-controls">
+              <h1>Detection Model:</h1>
+              <label class="switch">
+                <input type="checkbox" id="ms-model">
+                <span class="slider"></span>
+              </label>
+            </div>
             <div class="game-controls">
               <select  id="mspell-unit-picker" style="overflow-y:auto;">
                 <!--<option value="p1u1">mspell (test)</option>
@@ -106,7 +133,7 @@
         </div>
         <div class="game-card">
           <img src="./image/mhead_preview.png" alt="Game 8" class="game-image"/>
-          <div class="settings"> 
+          <!--<div class="settings"> 
             <label class="switch">
               <input type="checkbox" id="mh-bg-remove">
               <span class="slider"></span>
@@ -115,15 +142,30 @@
               <option value="lite">Normal</option>
               <option value="heavy">Stable</option>
             </select>
-          </div>
+          </div>-->
 
           <h1 class="game-title">Game 8: Head To Win</h1>
           <div class="game-controls">
+            <h1>Virtual Background:</h1>
+            <label class="switch">
+              <input type="checkbox" id="mh-bg-remove">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="game-controls">
+            <h1>Detection Model:</h1>
+            <label class="switch">
+              <input type="checkbox" id="mh-model">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="game-controls">
             <select  id="mhead-unit-picker" style="overflow-y:auto;">
               <option value="p1u1-a">P1U1-Game A (Listening)</option>
-              <option value="p1u3-e">P1U3-Game E (Text)</option>
+              <!--<option value="p1u3-e">P1U3-Game E (Text)</option>-->
               <option value="p1u5-e">P1U5-Game E (Text)</option>
               <option value="p2u1-e">P2U1-Game E (Text)</option>
+              <option value="p2u6-e">P2U6-Game E (Text)</option>
             </select>
             <button id="headToWinBtn" class="play-button">Play</button>
           </div>
@@ -167,7 +209,7 @@
   <script type="module">
       import RainbowOneUtils from './js/script.js';
       RainbowOneUtils.nodoubletapzoom();
-      //RainbowOneUtils.hideURLPath();
+     // RainbowOneUtils.hideURLPath();
 
       let mp_removalStatus = "";
       const mpbgRemoveSwitch = document.getElementById('mp-bg-remove');
@@ -179,6 +221,19 @@
           } else {
             mp_removalStatus = "";
             console.log('Switch is off!', mp_removalStatus);
+          }
+      });
+
+      let mp_model = "lite";
+      const mpModel = document.getElementById('mp-model');
+      mpModel.checked = false;
+      mpModel.addEventListener('change', function() {
+          if (this.checked) {
+            mp_model = "heavy";
+            console.log('Switch is on!', mp_model);
+          } else {
+            mp_model = "lite";
+            console.log('Switch is off!', mp_model);
           }
       });
       
@@ -195,6 +250,19 @@
           }
       });
 
+      let ms_model = "lite";
+      const msModel = document.getElementById('ms-model');
+      msModel.checked = false;
+      msModel.addEventListener('change', function() {
+          if (this.checked) {
+            ms_model = "heavy";
+            console.log('Switch is on!', ms_model);
+          } else {
+            ms_model = "lite";
+            console.log('Switch is off!', ms_model);
+          }
+      });
+
       let mh_removalStatus = "";
       const mhbgRemoveSwitch = document.getElementById('mh-bg-remove');
       mhbgRemoveSwitch.checked = false;
@@ -205,6 +273,19 @@
           } else {
             mh_removalStatus = "";
             console.log('Switch is off!', mh_removalStatus);
+          }
+      });
+
+      let mh_model = "lite";
+      const mhModel = document.getElementById('mh-model');
+      mhModel.checked = false;
+      mhModel.addEventListener('change', function() {
+          if (this.checked) {
+            mh_model = "heavy";
+            console.log('Switch is on!', mh_model);
+          } else {
+            mh_model = "lite";
+            console.log('Switch is off!', mh_model);
           }
       });
 
@@ -235,15 +316,15 @@
         if (event.type === 'click' || event.type === 'touchend') {
           const target = event.currentTarget;
           if (target.id === 'phonicsBtn') {
-            RainbowOneUtils.updatePhonicsGameLink(mp_removalStatus);
+            RainbowOneUtils.updatePhonicsGameLink(mp_removalStatus, mp_model);
           } else if (target.id === 'snakeBtn') {
             RainbowOneUtils.updateSnakeGameLink();
           } else if (target.id === 'typingBtn') {
             RainbowOneUtils.updateTypingGameLink();
           } else if (target.id === 'mspellingBtn') {
-            RainbowOneUtils.updateSpellingGameLink(ms_removalStatus);
+            RainbowOneUtils.updateSpellingGameLink(ms_removalStatus, ms_model);
           } else if (target.id === 'headToWinBtn') {
-            RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus);
+            RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus, mh_model);
           } else if (target.id === 'jumpToWinBtn') {
             RainbowOneUtils.updateJumpToWinGameLink();
           }
