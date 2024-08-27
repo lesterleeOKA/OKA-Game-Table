@@ -182,7 +182,7 @@
             <button id="jumpToWinBtn" class="play-button">Play</button>
           </div>
         </div>
-        <!--<div class="game-card">
+        <div class="game-card">
           <img src="./image/starwish_game_a.png" alt="Starwish A" class="game-image" translate="no"/>
           <h1 class="game-title">Starwish Game A</h1>
           <div class="game-controls">
@@ -201,7 +201,7 @@
             </select>
             <button onclick="window.location.href = 'https://dev.openknowledge.hk/RainbowOne/webapp/OKAGames/StarwishGame_j/';" class="play-button">Play</button>
           </div>
-        </div>-->
+        </div>
 
     </div>
   </div>
@@ -209,7 +209,7 @@
   <script type="module">
       import RainbowOneUtils from './js/script.js';
       RainbowOneUtils.nodoubletapzoom();
-     // RainbowOneUtils.hideURLPath();
+      //RainbowOneUtils.hideURLPath();
 
       let mp_removalStatus = "";
       const mpbgRemoveSwitch = document.getElementById('mp-bg-remove');
@@ -229,7 +229,7 @@
       mpModel.checked = false;
       mpModel.addEventListener('change', function() {
           if (this.checked) {
-            mp_model = "heavy";
+            mp_model = "full";
             console.log('Switch is on!', mp_model);
           } else {
             mp_model = "lite";
@@ -255,7 +255,7 @@
       msModel.checked = false;
       msModel.addEventListener('change', function() {
           if (this.checked) {
-            ms_model = "heavy";
+            ms_model = "full";
             console.log('Switch is on!', ms_model);
           } else {
             ms_model = "lite";
@@ -281,7 +281,7 @@
       mhModel.checked = false;
       mhModel.addEventListener('change', function() {
           if (this.checked) {
-            mh_model = "heavy";
+            mh_model = "full";
             console.log('Switch is on!', mh_model);
           } else {
             mh_model = "lite";
