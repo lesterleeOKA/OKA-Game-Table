@@ -6,6 +6,7 @@ const RainbowOneUtils = {
   updateTypingGameLink,
   updateSpellingGameLink,
   updateHeadToWinGameLink,
+  updateWordBlitzGameLink,
   updateJumpToWinGameLink,
   nodoubletapzoom,
   hideURLPath,
@@ -52,6 +53,15 @@ function updateHeadToWinGameLink(removalStatus, selectedModel) {
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
   window.open(newUrl, '_self');
 }
+
+function updateWordBlitzGameLink() {
+  const unitPicker = document.getElementById('wordBlitz-unit-picker');
+  const selectedUnit = unitPicker.value;
+  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/WordBlitz/';
+  const newUrl = `${baseUrl}?unit=${selectedUnit}`;
+  window.open(newUrl, '_self');
+}
+
 function updateJumpToWinGameLink() {
   const unitPicker = document.getElementById('jump-unit-picker');
   const selectedUnit = unitPicker.value;

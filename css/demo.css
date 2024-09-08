@@ -93,6 +93,7 @@ html, body {
     display: flex;
     flex-direction: column;
     touch-action: manipulation;
+    height: calc(min(30vw, 30vw));
   }
   .game-card .game-image {
     border-radius: calc(min(2vh, 2vw));

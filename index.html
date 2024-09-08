@@ -171,6 +171,18 @@
           </div>
         </div>
         <div class="game-card">
+          <img src="./image/wordBlitz_preview.png" alt="Game 10" class="game-image" translate="no"/>
+          <h1 class="game-title">Game 10: Word Blitz</h1>
+          <div class="game-controls">
+            <select  id="wordBlitz-unit-picker" style="overflow-y:auto;">
+              <option value="p2u1-c">P2U1-Game C (Listening)</option>
+              <option value="p2u2-c">P2U2-Game C (Listening)</option>
+              <option value="p3u1-d">P3U1-Game D (Listening)</option>
+            </select>
+            <button id="wordBlitzBtn" class="play-button">Play</button>
+          </div>
+        </div>
+        <div class="game-card">
           <img src="./image/jump_to_win_preview.png" alt="Game 12" class="game-image" translate="no"/>
           <h1 class="game-title">Game 12: Jump To Win</h1>
           <div class="game-controls">
@@ -205,7 +217,7 @@
 
     </div>
   </div>
-  <div class="version-text">Ver 1.06</div>
+  <div class="version-text">Ver 1.07</div>
   <script type="module">
       import RainbowOneUtils from './js/script.js';
       RainbowOneUtils.nodoubletapzoom();
@@ -294,6 +306,7 @@
       const typingBtn = document.getElementById('typingBtn');
       const mspellingBtn = document.getElementById('mspellingBtn');
       const headToWinBtn = document.getElementById('headToWinBtn');
+      const wordBlitzBtn = document.getElementById('wordBlitzBtn');
       const jumpToWinBtn = document.getElementById('jumpToWinBtn');
 
       phonicsBtn.addEventListener('click', handleButtonClick);
@@ -301,6 +314,7 @@
       typingBtn.addEventListener('click', handleButtonClick);
       mspellingBtn.addEventListener('click', handleButtonClick);
       headToWinBtn.addEventListener('click', handleButtonClick);
+      wordBlitzBtn.addEventListener('click', handleButtonClick);
       jumpToWinBtn.addEventListener('click', handleButtonClick);
 
       phonicsBtn.addEventListener('touchend', handleButtonClick);
@@ -308,6 +322,7 @@
       typingBtn.addEventListener('touchend', handleButtonClick);
       mspellingBtn.addEventListener('touchend', handleButtonClick);
       headToWinBtn.addEventListener('touchend', handleButtonClick);
+      wordBlitzBtn.addEventListener('touchend', handleButtonClick);
       jumpToWinBtn.addEventListener('touchend', handleButtonClick);
 
       function handleButtonClick(event) {
@@ -325,6 +340,8 @@
             RainbowOneUtils.updateSpellingGameLink(ms_removalStatus, ms_model);
           } else if (target.id === 'headToWinBtn') {
             RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus, mh_model);
+          } else if (target.id === 'wordBlitzBtn') {
+            RainbowOneUtils.updateWordBlitzGameLink();
           } else if (target.id === 'jumpToWinBtn') {
             RainbowOneUtils.updateJumpToWinGameLink();
           }
