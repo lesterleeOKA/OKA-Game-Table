@@ -89,17 +89,6 @@
         </div>
         <div class="game-card">
             <img src="./image/screen_mspell.jpg" alt="Game 5" class="game-image" translate="no"/>
-            <!--<div class="settings"> 
-              <label class="switch">
-                <input type="checkbox" id="ms-bg-remove">
-                <span class="slider"></span>
-              </label>
-              <select id="ms-model" class="modelOption" style="overflow-y:auto;">
-                <option value="lite">Normal</option>
-                <option value="heavy">Stable</option>
-              </select>
-            </div>-->
-           
             <h1 class="game-title">Game 5: Motion Spelling</h1>
             <div class="game-controls">
               <h1>Virtual Background:</h1>
@@ -132,18 +121,35 @@
             </div>
         </div>
         <div class="game-card">
-          <img src="./image/mhead_preview.png" alt="Game 8" class="game-image"/>
-          <!--<div class="settings"> 
+          <img src="./image/fruit_ninja.png" alt="Game 6" class="game-image" translate="no"/>
+          <h1 class="game-title">Game 6: Fruit Ninja</h1>
+          <div class="game-controls">
+            <h1>Virtual Background:</h1>
             <label class="switch">
-              <input type="checkbox" id="mh-bg-remove">
+              <input type="checkbox" id="mfn-bg-remove">
               <span class="slider"></span>
             </label>
-            <select id="mh-model" class="modelOption" style="overflow-y:auto;">
-              <option value="lite">Normal</option>
-              <option value="heavy">Stable</option>
+          </div>
+          <div class="game-controls">
+            <h1>Detection Model:</h1>
+            <label class="switch">
+              <input type="checkbox" id="mfn-model">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="game-controls">
+            <select  id="mfruitNinja-unit-picker" style="overflow-y:auto;">
+              <!--<option value="p1u1">mspell (test)</option>
+              <option value="p3u1-e">mspell-mc (test)</option>-->
+              <option value="p1u1-e">P1U1-Game E (FillInBlank)</option>
+              <option value="p1u2-a">P1U2-Game A (Listening)</option>
+              <option value="p2u3-e">P2U3-Game E (Text)</option>
             </select>
-          </div>-->
-
+            <button id="mfruitNinjaBtn" class="play-button">Play</button>
+          </div>
+      </div>
+        <div class="game-card">
+          <img src="./image/mhead_preview.png" alt="Game 8" class="game-image"/>
           <h1 class="game-title">Game 8: Head To Win</h1>
           <div class="game-controls">
             <h1>Virtual Background:</h1>
@@ -275,6 +281,32 @@
           }
       });
 
+      let mfn_removalStatus = "";
+      const mfnbgRemoveSwitch = document.getElementById('mfn-bg-remove');
+      mfnbgRemoveSwitch.checked = false;
+      mfnbgRemoveSwitch.addEventListener('change', function() {
+          if (this.checked) {
+            mfn_removalStatus = "&removal=1";
+            console.log('Switch is on!', mfn_removalStatus);
+          } else {
+            mfn_removalStatus = "";
+            console.log('Switch is off!', mfn_removalStatus);
+          }
+      });
+
+      let mfn_model = "lite";
+      const mfnModel = document.getElementById('mfn-model');
+      mfnModel.checked = false;
+      mfnModel.addEventListener('change', function() {
+          if (this.checked) {
+            mfn_model = "full";
+            console.log('Switch is on!', mfnModel);
+          } else {
+            mfn_model = "lite";
+            console.log('Switch is off!', mfnModel);
+          }
+      });
+
       let mh_removalStatus = "";
       const mhbgRemoveSwitch = document.getElementById('mh-bg-remove');
       mhbgRemoveSwitch.checked = false;
@@ -305,6 +337,7 @@
       const snakeBtn = document.getElementById('snakeBtn');
       const typingBtn = document.getElementById('typingBtn');
       const mspellingBtn = document.getElementById('mspellingBtn');
+      const mfruitNinjaBtn = document.getElementById('mfruitNinjaBtn');
       const headToWinBtn = document.getElementById('headToWinBtn');
       const wordBlitzBtn = document.getElementById('wordBlitzBtn');
       const jumpToWinBtn = document.getElementById('jumpToWinBtn');
@@ -313,6 +346,7 @@
       snakeBtn.addEventListener('click', handleButtonClick);
       typingBtn.addEventListener('click', handleButtonClick);
       mspellingBtn.addEventListener('click', handleButtonClick);
+      mfruitNinjaBtn.addEventListener('click', handleButtonClick);
       headToWinBtn.addEventListener('click', handleButtonClick);
       wordBlitzBtn.addEventListener('click', handleButtonClick);
       jumpToWinBtn.addEventListener('click', handleButtonClick);
@@ -321,6 +355,7 @@
       snakeBtn.addEventListener('touchend', handleButtonClick);
       typingBtn.addEventListener('touchend', handleButtonClick);
       mspellingBtn.addEventListener('touchend', handleButtonClick);
+      mfruitNinjaBtn.addEventListener('touchend', handleButtonClick);
       headToWinBtn.addEventListener('touchend', handleButtonClick);
       wordBlitzBtn.addEventListener('touchend', handleButtonClick);
       jumpToWinBtn.addEventListener('touchend', handleButtonClick);
@@ -338,7 +373,9 @@
             RainbowOneUtils.updateTypingGameLink();
           } else if (target.id === 'mspellingBtn') {
             RainbowOneUtils.updateSpellingGameLink(ms_removalStatus, ms_model);
-          } else if (target.id === 'headToWinBtn') {
+          } else if (target.id === 'mfruitNinjaBtn') {
+            RainbowOneUtils.updateFruitNinjaGameLink(mfn_removalStatus, mfn_model);
+          }else if (target.id === 'headToWinBtn') {
             RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus, mh_model);
           } else if (target.id === 'wordBlitzBtn') {
             RainbowOneUtils.updateWordBlitzGameLink();

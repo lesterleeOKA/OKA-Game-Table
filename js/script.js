@@ -5,6 +5,7 @@ const RainbowOneUtils = {
   updateSnakeGameLink,
   updateTypingGameLink,
   updateSpellingGameLink,
+  updateFruitNinjaGameLink,
   updateHeadToWinGameLink,
   updateWordBlitzGameLink,
   updateJumpToWinGameLink,
@@ -44,6 +45,16 @@ function updateSpellingGameLink(removalStatus, selectedModel) {
     const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
     window.open(newUrl, '_self');
 }
+function updateFruitNinjaGameLink(removalStatus, selectedModel) {
+  console.log("removalStatus", removalStatus);
+  console.log("change Model", selectedModel);
+  const unitPicker = document.getElementById('mfruitNinja-unit-picker');
+  const selectedUnit = unitPicker.value;
+  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/FruitNinja/';
+  const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
+  window.open(newUrl, '_self');
+}
+
 function updateHeadToWinGameLink(removalStatus, selectedModel) {
   console.log("removalStatus", removalStatus);
   console.log("change Model", selectedModel);
