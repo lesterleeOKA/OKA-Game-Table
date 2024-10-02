@@ -1,5 +1,9 @@
 import { HEADER } from './config.js';
 
+
+const openTab = '_self';
+//const openTab = '_blank';
+
 const RainbowOneUtils = {
   updatePhonicsGameLink,
   updateSnakeGameLink,
@@ -13,6 +17,10 @@ const RainbowOneUtils = {
   hideURLPath,
 };
 
+function openRedirectPage(url) {
+  window.open(`redirect.html?url=${encodeURIComponent(url)}`, openTab);
+}
+
 function updatePhonicsGameLink(removalStatus, selectedModel) {
   console.log("removalStatus", removalStatus);
   console.log("change Model", selectedModel);
@@ -20,21 +28,24 @@ function updatePhonicsGameLink(removalStatus, selectedModel) {
     const selectedUnit = unitPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Phonics/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
-    window.open(newUrl, '_self');
+    //openRedirectPage(newUrl);
+    window.open(newUrl, openTab);
 }
 function updateSnakeGameLink() {
     const unitPicker = document.getElementById('snake-unit-picker');
     const selectedUnit = unitPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Snake/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
-    window.open(newUrl, '_self');
+    //openRedirectPage(newUrl);
+    window.open(newUrl, openTab);
 }
 function updateTypingGameLink() {
     const unitPicker = document.getElementById('typing-unit-picker');
     const selectedUnit = unitPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Typing/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
-    window.open(newUrl, '_self');
+    //openRedirectPage(newUrl);
+    window.open(newUrl, openTab);
 }
 function updateSpellingGameLink(removalStatus, selectedModel) {
     console.log("removalStatus", removalStatus);
@@ -43,7 +54,8 @@ function updateSpellingGameLink(removalStatus, selectedModel) {
     const selectedUnit = unitPicker.value;
     const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/MotionSpelling/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
-    window.open(newUrl, '_self');
+    //openRedirectPage(newUrl);
+    window.open(newUrl, openTab);
 }
 function updateFruitNinjaGameLink(removalStatus, selectedModel) {
   console.log("removalStatus", removalStatus);
@@ -52,7 +64,8 @@ function updateFruitNinjaGameLink(removalStatus, selectedModel) {
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/FruitNinja/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
-  window.open(newUrl, '_self');
+  //openRedirectPage(newUrl);
+  window.open(newUrl, openTab);
 }
 
 function updateHeadToWinGameLink(removalStatus, selectedModel) {
@@ -62,7 +75,8 @@ function updateHeadToWinGameLink(removalStatus, selectedModel) {
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/HeadToWin/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
-  window.open(newUrl, '_self');
+  //openRedirectPage(newUrl);
+  window.open(newUrl, openTab);
 }
 
 function updateWordBlitzGameLink() {
@@ -70,7 +84,8 @@ function updateWordBlitzGameLink() {
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/WordBlitz/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}`;
-  window.open(newUrl, '_self');
+  //openRedirectPage(newUrl);
+  window.open(newUrl, openTab);
 }
 
 function updateJumpToWinGameLink() {
@@ -78,7 +93,8 @@ function updateJumpToWinGameLink() {
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/JumpToWin/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}`;
-  window.open(newUrl, '_self');
+  //openRedirectPage(newUrl);
+  window.open(newUrl, openTab);
 }
 
  function nodoubletapzoom() {

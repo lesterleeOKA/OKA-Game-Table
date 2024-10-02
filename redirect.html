@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Wait for 3 seconds and then redirect to the URL specified in the query parameters
+        const redirectUrl = new URLSearchParams(window.location.search).get('url');
+        if (redirectUrl) {
+            setTimeout(() => {
+                window.location.href = redirectUrl; // Redirect if URL exists
+            }, 2000); // 3000 milliseconds = 3 seconds
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>You will be redirected shortly.</p>
+    <p>If it doesn't redirect, please check your address bar.</p>
+</body>
+</html>

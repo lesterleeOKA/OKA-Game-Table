@@ -49,6 +49,7 @@ import RainbowOneUtils from './script.js';
       function handleButtonClick(event) {
         event.preventDefault(); // Prevent default touch behavior
         const target = event.currentTarget;
+        target.disabled = true;
 
         const actions = {
           phonicsBtn: () => RainbowOneUtils.updatePhonicsGameLink(mp_removalStatus.value, mp_model.value),
@@ -64,4 +65,8 @@ import RainbowOneUtils from './script.js';
         if (actions[target.id]) {
           actions[target.id]();
         }
+
+        setTimeout(() => {
+          target.disabled = false;
+        }, 1000);
       }
