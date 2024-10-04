@@ -2,28 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        // Wait for 3 seconds and then redirect to the URL specified in the query parameters
-        const redirectUrl = new URLSearchParams(window.location.search).get('url');
-        if (redirectUrl) {
-            setTimeout(() => {
-                window.location.href = redirectUrl; // Redirect if URL exists
-            }, 2000); // 3000 milliseconds = 3 seconds
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Loading Game...</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            overflow: hidden; /* Prevent scroll bars */
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        }
+        #dimensions {
+            position: absolute; /* Position absolutely */
+            top: 10px; /* Adjust as needed */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Correct centering */
+            padding: 10px;
+            background: rgba(190, 11, 11, 0.8); /* Semi-transparent background */
+            color: white; /* Text color for visibility */
             text-align: center;
-            margin-top: 50px;
+            z-index: 10; /* Ensure it's above the iframe */
+        }
+        iframe {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            top: 0;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <h1>Redirecting...</h1>
-    <p>You will be redirected shortly.</p>
-    <p>If it doesn't redirect, please check your address bar.</p>
+    <div id="dimensions"></div> 
+    <iframe id="game-iframe" src=""></iframe>
+    <script>
+        const redirectUrl = new URLSearchParams(window.location.search).get('url');
+        if (redirectUrl) {
+            document.getElementById('game-iframe').src = redirectUrl; // Set iframe src to the redirect URL
+        } else {
+            document.body.innerHTML = '<h1>Error</h1><p>No game URL provided.</p>'; // Error message if no URL
+        }
+
+        // Function to update dimensions display
+        function adjustDimensions() {
+            const originalWidth = 2360;  // Original canvas width
+            const originalHeight = 1640; // Original canvas height
+            let innerHeight = window.innerHeight;
+
+            if (/iPhone|iPad/i.test(navigator.userAgent)) {
+                // Code to execute if the device is an iPhone or iPad
+                innerHeight = window.innerHeight * 0.9;
+            }
+            console.log("window innerHeight: --------------------------------------", innerHeight);
+            
+            const scale = innerHeight / originalHeight;
+            const scaledWidth = originalWidth * scale;
+            const offsetX = (window.innerWidth - scaledWidth) / 2;
+
+            const iframe = document.getElementById('game-iframe');
+            iframe.style.width = `${originalWidth}px`;
+            iframe.style.height = `${originalHeight}px`;
+            iframe.style.transform = `scale(${scale})`;
+            iframe.style.transformOrigin = 'top left';
+            iframe.style.left = `${offsetX}px`;
+
+            // Display dimensions for debugging
+            const dimensions = document.getElementById('dimensions');
+            dimensions.textContent = `Device Width: ${window.innerWidth}px, Viewing Height: ${innerHeight}px, Scale: ${scale}`;
+        }
+
+        window.onload = adjustDimensions; // Set dimensions on load
+        window.onresize = adjustDimensions; // Adjust dimensions on window resize
+    </script>
 </body>
 </html>
