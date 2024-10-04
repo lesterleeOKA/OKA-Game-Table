@@ -39,9 +39,36 @@
     <div id="dimensions"></div> 
     <iframe id="game-iframe" src=""></iframe>
     <script>
+        let isReload = false;
+        let initialHeight = window.innerHeight; // Store the initial height
         const redirectUrl = new URLSearchParams(window.location.search).get('url');
+        const currentUrl = redirectUrl;
+
+        // Set the flag when the page is about to unload
+        window.onbeforeunload = () => {
+            isReload = true; // Mark as reloading
+        };
+
         if (redirectUrl) {
-            document.getElementById('game-iframe').src = redirectUrl; // Set iframe src to the redirect URL
+            if (/iPhone|iPad/i.test(navigator.userAgent)) {
+                
+                document.getElementById('game-iframe').src = redirectUrl; // Set iframe src to the redirect URL
+
+                window.onload = () => {
+                    initialHeight = window.innerHeight; // Capture the height once on load
+                    adjustDimensions(); // Adjust dimensions immediately
+                };
+
+                let resizeTimeout;
+                window.onresize = () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(adjustDimensions, 500);
+                };
+            }
+            else {
+                window.location.href = redirectUrl;
+            }
+           
         } else {
             document.body.innerHTML = '<h1>Error</h1><p>No game URL provided.</p>'; // Error message if no URL
         }
@@ -50,12 +77,9 @@
         function adjustDimensions() {
             const originalWidth = 2360;  // Original canvas width
             const originalHeight = 1640; // Original canvas height
-            let innerHeight = window.innerHeight;
+            const actualScale = window.innerHeight / originalHeight;
+            let innerHeight = isReload ? window.innerHeight : initialHeight * 0.9;
 
-            if (/iPhone|iPad/i.test(navigator.userAgent)) {
-                // Code to execute if the device is an iPhone or iPad
-                innerHeight = window.innerHeight * 0.9;
-            }
             console.log("window innerHeight: --------------------------------------", innerHeight);
             
             const scale = innerHeight / originalHeight;
@@ -68,14 +92,19 @@
             iframe.style.transform = `scale(${scale})`;
             iframe.style.transformOrigin = 'top left';
             iframe.style.left = `${offsetX}px`;
+            iframe.animate
 
             // Display dimensions for debugging
             const dimensions = document.getElementById('dimensions');
-            dimensions.textContent = `Device Width: ${window.innerWidth}px, Viewing Height: ${innerHeight}px, Scale: ${scale}`;
+            dimensions.textContent = `Device Width: ${window.innerWidth}px, Viewing Height: ${window.innerHeight}px, Actual Scale: ${actualScale}, Scale: ${scale}`;
         }
 
-        window.onload = adjustDimensions; // Set dimensions on load
-        window.onresize = adjustDimensions; // Adjust dimensions on window resize
+        // Use visibilitychange to detect when the page becomes visible again
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                adjustDimensions(); // Adjust when the page becomes visible
+            }
+        });
     </script>
 </body>
 </html>
