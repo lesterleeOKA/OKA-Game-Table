@@ -18,7 +18,7 @@ const RainbowOneUtils = {
 };
 
 function openRedirectPage(url) {
-  window.open(`redirect.html?url=${encodeURIComponent(url)}`, '_blank');
+  window.open(`redirect.html?url=${url}`, openTab);
 }
 
 function updatePhonicsGameLink(removalStatus, selectedModel) {

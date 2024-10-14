@@ -40,10 +40,9 @@
     <iframe id="game-iframe" src=""></iframe>
     <script>
         let isReload = false;
-        let initialHeight = window.innerHeight; // Store the initial height
-        const redirectUrl = new URLSearchParams(window.location.search).get('url');
-        const currentUrl = redirectUrl;
-
+        let initialHeight = window.innerHeight;
+        let redirectUrl =location.href.substr(location.href.indexOf('url=')+4);
+ 
         // Set the flag when the page is about to unload
         window.onbeforeunload = () => {
             isReload = true; // Mark as reloading
@@ -52,7 +51,7 @@
         if (redirectUrl) {
             if (/iPhone|iPad/i.test(navigator.userAgent)) {
                 
-                document.getElementById('game-iframe').src = redirectUrl; // Set iframe src to the redirect URL
+                document.getElementById('game-iframe').src = redirectUrl;
 
                 window.onload = () => {
                     initialHeight = window.innerHeight; // Capture the height once on load
@@ -62,7 +61,7 @@
                 let resizeTimeout;
                 window.onresize = () => {
                     clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(adjustDimensions, 500);
+                    resizeTimeout = setTimeout(adjustDimensions, 200);
                 };
             }
             else {
