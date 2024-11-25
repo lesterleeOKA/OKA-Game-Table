@@ -1,6 +1,6 @@
 import RainbowOneUtils from './script.js';
       RainbowOneUtils.nodoubletapzoom();
-      //RainbowOneUtils.hideURLPath();
+      RainbowOneUtils.hideURLPath();
       const toggleRemovalStatus = (switchElement, statusVariable) => {
         switchElement.checked = false;
         switchElement.addEventListener('change', function() {

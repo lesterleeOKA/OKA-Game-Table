@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Window Close Support</title>
+    <script>
+        function checkWindowCloseSupport() {
+            const newWindow = window.open('', '_blank'); // Try to open a new window
+            
+            if (newWindow) {
+                // If a new window was opened, try to close it
+                newWindow.close();
+                alert("Window close is supported.");
+            } else {
+                alert("Window close is not supported.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="checkWindowCloseSupport()">Check Window Close Support</button>
+</body>
+</html>

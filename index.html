@@ -121,26 +121,24 @@
             </div>
         </div>
         <div class="game-card">
-          <img src="./image/fruit_ninja.png" alt="Game 6" class="game-image" translate="no"/>
+          <img src="./image/fruit_ninja.png" alt="Game 6" class="game-image" translate="no" style="filter: brightness(50%);"/>
           <h1 class="game-title">Game 6: Fruit Ninja</h1>
-          <div class="game-controls">
+          <div class="game-controls" style="display: none;">
             <h1>Virtual Background:</h1>
             <label class="switch">
               <input type="checkbox" id="mfn-bg-remove">
               <span class="slider"></span>
             </label>
           </div>
-          <div class="game-controls">
+          <div class="game-controls" style="display: none;">
             <h1>Detection Model:</h1>
             <label class="switch">
               <input type="checkbox" id="mfn-model">
               <span class="slider"></span>
             </label>
           </div>
-          <div class="game-controls">
+          <div class="game-controls" style="display: none;">
             <select  id="mfruitNinja-unit-picker" style="overflow-y:auto;">
-              <!--<option value="p1u1">mspell (test)</option>
-              <option value="p3u1-e">mspell-mc (test)</option>-->
               <option value="p1u1-e">P1U1-Game E (FillInBlank)</option>
               <option value="p1u2-a">P1U2-Game A (Listening)</option>
               <option value="p2u3-e">P2U3-Game E (Text)</option>
@@ -148,6 +146,8 @@
             <button id="mfruitNinjaBtn" class="play-button">Play</button>
           </div>
       </div>
+
+      
         <div class="game-card">
           <img src="./image/mhead_preview.png" alt="Game 8" class="game-image"/>
           <h1 class="game-title">Game 8: Head To Win</h1>
@@ -200,7 +200,8 @@
             <button id="jumpToWinBtn" class="play-button">Play</button>
           </div>
         </div>
-        <div class="game-card">
+
+        <!--<div class="game-card">
           <img src="./image/starwish_game_a.png" alt="Starwish A" class="game-image" translate="no"/>
           <h1 class="game-title">Starwish Game A</h1>
           <div class="game-controls">
@@ -229,7 +230,7 @@
             </select>
             <button onclick="window.location.href = 'https://dev.openknowledge.hk/RainbowOne/webapp/OKAGames/StarwishGame_f/';" class="play-button">Play</button>
           </div>
-        </div>
+        </div>-->
 
     </div>
   </div>
