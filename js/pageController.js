@@ -37,7 +37,7 @@ import RainbowOneUtils from './script.js';
       const buttons = [
         'phonicsBtn', 'snakeBtn', 'typingBtn', 
         'mspellingBtn', 'mfruitNinjaBtn', 
-        'headToWinBtn', 'wordBlitzBtn', 'jumpToWinBtn'
+        'headToWinBtn', 'crossTheFloorBtn', 'wordBlitzBtn', 'jumpToWinBtn'
       ];
 
       buttons.forEach(buttonId => {
@@ -58,6 +58,7 @@ import RainbowOneUtils from './script.js';
           mspellingBtn: () => RainbowOneUtils.updateSpellingGameLink(ms_removalStatus.value, ms_model.value),
           mfruitNinjaBtn: () => RainbowOneUtils.updateFruitNinjaGameLink(mfn_removalStatus.value, mfn_model.value),
           headToWinBtn: () => RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus.value, mh_model.value),
+          crossTheFloorBtn: () => RainbowOneUtils.updateCrossTheFloorGameLink(),
           wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(),
           jumpToWinBtn: () => RainbowOneUtils.updateJumpToWinGameLink(),
         };

@@ -11,6 +11,7 @@ const RainbowOneUtils = {
   updateSpellingGameLink,
   updateFruitNinjaGameLink,
   updateHeadToWinGameLink,
+  updateCrossTheFloorGameLink,
   updateWordBlitzGameLink,
   updateJumpToWinGameLink,
   nodoubletapzoom,
@@ -75,6 +76,15 @@ function updateHeadToWinGameLink(removalStatus, selectedModel) {
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/HeadToWin/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
+  //openRedirectPage(newUrl);
+  window.open(newUrl, openTab);
+}
+
+function updateCrossTheFloorGameLink() {
+  const unitPicker = document.getElementById('crossTheFloor-unit-picker');
+  const selectedUnit = unitPicker.value;
+  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/CrossTheFloor/';
+  const newUrl = `${baseUrl}?unit=${selectedUnit}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
 }
