@@ -10,7 +10,7 @@ import RainbowOneUtils from './script.js';
       };
 
       const toggleModel = (modelElement, modelVariable) => {
-        modelElement.checked = false;
+        modelElement.checked = true;
         modelElement.addEventListener('change', function() {
           modelVariable.value = this.checked ? "full" : "lite";
           console.log(`Switch is ${this.checked ? 'on' : 'off'}!`, modelVariable.value);
@@ -26,8 +26,8 @@ import RainbowOneUtils from './script.js';
 
       let mp_removalStatus = { value: "" }, ms_removalStatus = { value: "" }, 
           mfn_removalStatus = { value: "" }, mh_removalStatus = { value: "" };
-      let mp_model = { value: "lite" }, ms_model = { value: "lite" }, 
-          mfn_model = { value: "lite" }, mh_model = { value: "lite" };
+      let mp_model = { value: "full" }, ms_model = { value: "full" }, 
+          mfn_model = { value: "full" }, mh_model = { value: "full" };
 
       setupToggle('mp-bg-remove', 'mp-model', mp_removalStatus, mp_model);
       setupToggle('ms-bg-remove', 'ms-model', ms_removalStatus, ms_model);
