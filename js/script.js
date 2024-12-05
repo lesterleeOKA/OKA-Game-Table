@@ -34,7 +34,7 @@ function updatePhonicsGameLink(removalStatus, selectedModel) {
 function updateSnakeGameLink() {
     const unitPicker = document.getElementById('snake-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Snake/';
+    const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/Snake/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     //openRedirectPage(newUrl);
     window.open(newUrl, openTab);
@@ -42,7 +42,7 @@ function updateSnakeGameLink() {
 function updateTypingGameLink() {
     const unitPicker = document.getElementById('typing-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Typing/';
+    const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/Typing/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}`;
     //openRedirectPage(newUrl);
     window.open(newUrl, openTab);
