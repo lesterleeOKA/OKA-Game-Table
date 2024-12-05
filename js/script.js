@@ -92,7 +92,7 @@ function updateCrossTheFloorGameLink() {
 function updateWordBlitzGameLink() {
   const unitPicker = document.getElementById('wordBlitz-unit-picker');
   const selectedUnit = unitPicker.value;
-  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/WordBlitz/';
+  const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gameFile/OKAGames/WordBlitz/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
