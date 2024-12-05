@@ -26,7 +26,7 @@ function updatePhonicsGameLink(removalStatus, selectedModel) {
   console.log("change Model", selectedModel);
     const unitPicker = document.getElementById('mpcard-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/Phonics/';
+    const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/Phonics/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
     //openRedirectPage(newUrl);
     window.open(newUrl, openTab);
