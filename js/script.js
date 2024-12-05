@@ -52,7 +52,7 @@ function updateSpellingGameLink(removalStatus, selectedModel) {
     console.log("change Model", selectedModel);
     const unitPicker = document.getElementById('mspell-unit-picker');
     const selectedUnit = unitPicker.value;
-    const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/MotionSpelling/';
+    const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/MotionSpelling/';
     const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
     //openRedirectPage(newUrl);
     window.open(newUrl, openTab);
@@ -62,7 +62,7 @@ function updateFruitNinjaGameLink(removalStatus, selectedModel) {
   console.log("change Model", selectedModel);
   const unitPicker = document.getElementById('mfruitNinja-unit-picker');
   const selectedUnit = unitPicker.value;
-  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/FruitNinja/';
+  const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/FruitNinja/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
@@ -73,7 +73,7 @@ function updateHeadToWinGameLink(removalStatus, selectedModel) {
   console.log("change Model", selectedModel);
   const unitPicker = document.getElementById('mhead-unit-picker');
   const selectedUnit = unitPicker.value;
-  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/HeadToWin/';
+  const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/HeadToWin/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
