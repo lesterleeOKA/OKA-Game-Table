@@ -91,7 +91,7 @@ function updateWordBlitzGameLink() {
 function updateJumpToWinGameLink() {
   const unitPicker = document.getElementById('jump-unit-picker');
   const selectedUnit = unitPicker.value;
-  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/JumpToWin/';
+  const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/JumpToWin/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
@@ -127,7 +127,7 @@ function hideURLPath() {
   const currentURL = new URL(window.location.href);
   const baseURL = `${currentURL.protocol}//${currentURL.host}/`;
 
-  const hiddenPath = 'RainbowOne/webapp/OKAGames/';
+  const hiddenPath = 'RainbowOne/webapp/2.8/gamefile/OKAGames/';
 
   // Check if the current URL includes the hidden path
   if (currentURL.pathname.includes(hiddenPath)) {
