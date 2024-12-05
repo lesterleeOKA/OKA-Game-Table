@@ -82,7 +82,7 @@ function updateHeadToWinGameLink(removalStatus, selectedModel) {
 function updateWordBlitzGameLink() {
   const unitPicker = document.getElementById('wordBlitz-unit-picker');
   const selectedUnit = unitPicker.value;
-  const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/WordBlitz/';
+  const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gamefile/OKAGames/WordBlitz/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
