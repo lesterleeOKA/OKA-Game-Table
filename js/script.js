@@ -127,7 +127,7 @@ function hideURLPath() {
   const currentURL = new URL(window.location.href);
   const baseURL = `${currentURL.protocol}//${currentURL.host}/`;
 
-  const hiddenPath = 'RainbowOne/webapp/2.8/gamefile/OKAGames/';
+  const hiddenPath = 'RainbowOne/webapp/OKAGames/';
 
   // Check if the current URL includes the hidden path
   if (currentURL.pathname.includes(hiddenPath)) {
