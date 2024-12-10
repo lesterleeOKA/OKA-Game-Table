@@ -1,6 +1,6 @@
 import RainbowOneUtils from './script.js';
       RainbowOneUtils.nodoubletapzoom();
-      RainbowOneUtils.hideURLPath();
+      //RainbowOneUtils.hideURLPath();
       const toggleRemovalStatus = (switchElement, statusVariable) => {
         switchElement.checked = false;
         switchElement.addEventListener('change', function() {
@@ -34,10 +34,17 @@ import RainbowOneUtils from './script.js';
       setupToggle('mfn-bg-remove', 'mfn-model', mfn_removalStatus, mfn_model);
       setupToggle('mh-bg-remove', 'mh-model', mh_removalStatus, mh_model);
 
-      const buttons = [
+      /*const buttons = [
         'phonicsBtn', 'snakeBtn', 'typingBtn', 
         'mspellingBtn', 'mfruitNinjaBtn', 
         'headToWinBtn', 'wordBlitzBtn', 'jumpToWinBtn'
+      ];*/
+
+      const buttons = [
+        'phonicsBtn',
+        'mspellingBtn', 
+        'mfruitNinjaBtn', 
+        'headToWinBtn',
       ];
 
       buttons.forEach(buttonId => {
@@ -53,13 +60,13 @@ import RainbowOneUtils from './script.js';
 
         const actions = {
           phonicsBtn: () => RainbowOneUtils.updatePhonicsGameLink(mp_removalStatus.value, mp_model.value),
-          snakeBtn: () => RainbowOneUtils.updateSnakeGameLink(),
-          typingBtn: () => RainbowOneUtils.updateTypingGameLink(),
+          //snakeBtn: () => RainbowOneUtils.updateSnakeGameLink(),
+          //typingBtn: () => RainbowOneUtils.updateTypingGameLink(),
           mspellingBtn: () => RainbowOneUtils.updateSpellingGameLink(ms_removalStatus.value, ms_model.value),
           mfruitNinjaBtn: () => RainbowOneUtils.updateFruitNinjaGameLink(mfn_removalStatus.value, mfn_model.value),
           headToWinBtn: () => RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus.value, mh_model.value),
-          wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(),
-          jumpToWinBtn: () => RainbowOneUtils.updateJumpToWinGameLink(),
+          //wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(),
+          //jumpToWinBtn: () => RainbowOneUtils.updateJumpToWinGameLink(),
         };
 
         if (actions[target.id]) {
