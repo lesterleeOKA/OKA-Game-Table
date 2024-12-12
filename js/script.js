@@ -89,11 +89,12 @@ function updateCrossTheFloorGameLink() {
   window.open(newUrl, openTab);
 }
 
-function updateWordBlitzGameLink() {
+function updateWordBlitzGameLink(playerNumbers) {
+  console.log("playerNumbers: ", playerNumbers);
   const unitPicker = document.getElementById('wordBlitz-unit-picker');
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gameFile/OKAGames/WordBlitz/';
-  const newUrl = `${baseUrl}?unit=${selectedUnit}`;
+  const newUrl = `${baseUrl}?unit=${selectedUnit}&playerNumbers=${playerNumbers}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
 }

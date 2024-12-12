@@ -17,6 +17,15 @@ import RainbowOneUtils from './script.js';
         });
       };
 
+      const toggleBattleMode = (statusVariable) => {
+        const battleModeSwitch = document.getElementById('wB-battle');
+        battleModeSwitch.checked = true;
+        battleModeSwitch.addEventListener('change', function() {
+            statusVariable.value = this.checked ? "2" : "1";
+            console.log(`Battle mode switch is ${this.checked ? 'on' : 'off'}!`, statusVariable.value);
+        });
+    };
+
       const setupToggle = (bgRemoveId, modelId, removalStatus, model) => {
         const bgRemoveSwitch = document.getElementById(bgRemoveId);
         const modelElement = document.getElementById(modelId);
@@ -34,10 +43,14 @@ import RainbowOneUtils from './script.js';
       setupToggle('mfn-bg-remove', 'mfn-model', mfn_removalStatus, mfn_model);
       setupToggle('mh-bg-remove', 'mh-model', mh_removalStatus, mh_model);
 
+      //New
+      let battleModeStatus = { value: "2" };
+      toggleBattleMode(battleModeStatus);
+
       const buttons = [
         'phonicsBtn', 'snakeBtn', 'typingBtn', 
         'mspellingBtn', 'mfruitNinjaBtn', 
-        'headToWinBtn', 'crossTheFloorBtn', 'wordBlitzBtn', 'jumpToWinBtn'
+        'headToWinBtn', 'wordBlitzBtn', 'jumpToWinBtn', 'crossTheFloorBtn'
       ];
 
       buttons.forEach(buttonId => {
@@ -57,9 +70,9 @@ import RainbowOneUtils from './script.js';
           typingBtn: () => RainbowOneUtils.updateTypingGameLink(),
           mspellingBtn: () => RainbowOneUtils.updateSpellingGameLink(ms_removalStatus.value, ms_model.value),
           mfruitNinjaBtn: () => RainbowOneUtils.updateFruitNinjaGameLink(mfn_removalStatus.value, mfn_model.value),
+          crossTheFloorBtn: ()=> RainbowOneUtils.updateCrossTheFloorGameLink(),
           headToWinBtn: () => RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus.value, mh_model.value),
-          crossTheFloorBtn: () => RainbowOneUtils.updateCrossTheFloorGameLink(),
-          wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(),
+          wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(battleModeStatus.value),
           jumpToWinBtn: () => RainbowOneUtils.updateJumpToWinGameLink(),
         };
 
