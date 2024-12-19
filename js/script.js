@@ -10,6 +10,7 @@ const RainbowOneUtils = {
   updateTypingGameLink,
   updateSpellingGameLink,
   updateFruitNinjaGameLink,
+  updateMotionBasketGameLink,
   updateHeadToWinGameLink,
   updateCrossTheFloorGameLink,
   updateWordBlitzGameLink,
@@ -65,6 +66,16 @@ function updateFruitNinjaGameLink(removalStatus, selectedModel) {
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gameFile/OKAGames/FruitNinja/';
   const newUrl = `${baseUrl}?unit=${selectedUnit}${removalStatus}&model=${selectedModel}`;
+  //openRedirectPage(newUrl);
+  window.open(newUrl, openTab);
+}
+
+function updateMotionBasketGameLink(selectedModel) {
+  console.log("change Model", selectedModel);
+  const unitPicker = document.getElementById('mbasket-unit-picker');
+  const selectedUnit = unitPicker.value;
+  const baseUrl = HEADER + '/RainbowOne/webapp/2.8/gameFile/OKAGames/MotionBasket/';
+  const newUrl = `${baseUrl}?unit=${selectedUnit}&model=${selectedModel}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
 }
