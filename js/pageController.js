@@ -21,13 +21,15 @@ import RainbowOneUtils from './script.js';
         }
       };
 
-      const toggleBattleMode = (statusVariable) => {
-        const battleModeSwitch = document.getElementById('wB-battle');
-        battleModeSwitch.checked = true;
-        battleModeSwitch.addEventListener('change', function() {
-            statusVariable.value = this.checked ? "2" : "1";
-            console.log(`Battle mode switch is ${this.checked ? 'on' : 'off'}!`, statusVariable.value);
-        });
+      const toggleBattleMode = (battleElement, statusVariable) => {
+        const battleObject = document.getElementById(battleElement);
+        if(battleObject && statusVariable){
+          battleObject.checked = true;
+          battleObject.addEventListener('change', function() {
+              statusVariable.value = this.checked ? "2" : "1";
+              console.log(`Battle mode switch is ${this.checked ? 'on' : 'off'}!`, statusVariable.value);
+          });
+        }
     };
 
       const setupToggle = (bgRemoveId, modelId, removalStatus, model) => {
@@ -50,8 +52,9 @@ import RainbowOneUtils from './script.js';
       setupToggle('', 'mb-model', null, mb_model);
 
       //New
-      let battleModeStatus = { value: "2" };
-      toggleBattleMode(battleModeStatus);
+      let cf_BattleStatus = { value: "2" }, wb_battleStatus = {value: "2"};
+      toggleBattleMode('cf-battle', cf_BattleStatus);
+      toggleBattleMode('wB-battle', wb_battleStatus);
 
       const buttons = [
         'phonicsBtn', 'snakeBtn', 'typingBtn', 
@@ -77,9 +80,9 @@ import RainbowOneUtils from './script.js';
           mspellingBtn: () => RainbowOneUtils.updateSpellingGameLink(ms_removalStatus.value, ms_model.value),
           mfruitNinjaBtn: () => RainbowOneUtils.updateFruitNinjaGameLink(mfn_removalStatus.value, mfn_model.value),
           mbasketBtn: () => RainbowOneUtils.updateMotionBasketGameLink(mb_model.value), 
-          crossTheFloorBtn: ()=> RainbowOneUtils.updateCrossTheFloorGameLink(),
+          crossTheFloorBtn: ()=> RainbowOneUtils.updateCrossTheFloorGameLink(cf_BattleStatus.value),
           headToWinBtn: () => RainbowOneUtils.updateHeadToWinGameLink(mh_removalStatus.value, mh_model.value),
-          wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(battleModeStatus.value),
+          wordBlitzBtn: () => RainbowOneUtils.updateWordBlitzGameLink(wb_battleStatus.value),
           jumpToWinBtn: () => RainbowOneUtils.updateJumpToWinGameLink(),
         };
 

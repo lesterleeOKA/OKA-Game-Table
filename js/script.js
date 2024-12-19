@@ -91,11 +91,12 @@ function updateHeadToWinGameLink(removalStatus, selectedModel) {
   window.open(newUrl, openTab);
 }
 
-function updateCrossTheFloorGameLink() {
+function updateCrossTheFloorGameLink(playerNumbers) {
+  console.log("playerNumbers: ", playerNumbers);
   const unitPicker = document.getElementById('crossTheFloor-unit-picker');
   const selectedUnit = unitPicker.value;
   const baseUrl = HEADER + '/RainbowOne/webapp/OKAGames/CrossTheFloor/';
-  const newUrl = `${baseUrl}?unit=${selectedUnit}`;
+  const newUrl = `${baseUrl}?unit=${selectedUnit}&playerNumbers=${playerNumbers}`;
   //openRedirectPage(newUrl);
   window.open(newUrl, openTab);
 }
